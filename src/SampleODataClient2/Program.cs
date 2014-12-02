@@ -13,7 +13,7 @@ namespace SampleODataClient2
             Container c = new Container(new Uri("http://localhost:53305/odata"));
             foreach (var person in c.People)
             {
-                Console.WriteLine(person.ExtraFields.KeyVal); // this is the field we want to validate exists
+                //Console.WriteLine(person.ExtraFields.KeyVal); // this is the field we want to validate exists
             }
 
             Console.Read();

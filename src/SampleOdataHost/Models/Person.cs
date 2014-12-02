@@ -67,5 +67,11 @@ namespace SampleOdataHost
             this.Self = self;
         }
         public IDictionary<string, object> Self { get; set; }
+
+        /// <summary>
+        /// Should not be used.
+        /// Mandated since clients generated using OData client gen will require at least a single property.
+        /// </summary>
+        public string Empty { get; set; }
     }
 }

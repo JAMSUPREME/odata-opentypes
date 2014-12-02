@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 12/2/2014 2:01:18 PM
+// Generation date: 12/2/2014 2:51:27 PM
 namespace SampleODataClient2.Client.SampleOdataHost
 {
     /// <summary>
@@ -42,17 +42,11 @@ namespace SampleODataClient2.Client.SampleOdataHost
         /// <summary>
         /// Create a new Person object.
         /// </summary>
-        /// <param name="extraFields">Initial value of ExtraFields.</param>
         /// <param name="ID">Initial value of Id.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "2.1.0")]
-        public static Person CreatePerson(global::SampleODataClient2.Client.SampleOdataHost.ExtraFields extraFields, int ID)
+        public static Person CreatePerson(int ID)
         {
             Person person = new Person();
-            if ((extraFields == null))
-            {
-                throw new global::System.ArgumentNullException("extraFields");
-            }
-            person.ExtraFields = extraFields;
             person.Id = ID;
             return person;
         }
@@ -149,6 +143,29 @@ namespace SampleODataClient2.Client.SampleOdataHost
     [global::Microsoft.OData.Client.OriginalNameAttribute("ExtraFields")]
     public partial class ExtraFields : global::System.ComponentModel.INotifyPropertyChanged
     {
+        /// <summary>
+        /// There are no comments for Property Empty in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "2.1.0")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Empty")]
+        public string Empty
+        {
+            get
+            {
+                return this._Empty;
+            }
+            set
+            {
+                this.OnEmptyChanging(value);
+                this._Empty = value;
+                this.OnEmptyChanged();
+                this.OnPropertyChanged("Empty");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "2.1.0")]
+        private string _Empty;
+        partial void OnEmptyChanging(string value);
+        partial void OnEmptyChanged();
         /// <summary>
         /// This event is raised when the value of the property is changed
         /// </summary>
@@ -304,11 +321,13 @@ namespace SampleODataClient2.Client.Default
         <Key>
           <PropertyRef Name=""Id"" />
         </Key>
-        <Property Name=""ExtraFields"" Type=""SampleOdataHost.ExtraFields"" Nullable=""false"" />
+        <Property Name=""ExtraFields"" Type=""SampleOdataHost.ExtraFields"" />
         <Property Name=""Id"" Type=""Edm.Int32"" Nullable=""false"" />
         <Property Name=""Name"" Type=""Edm.String"" />
       </EntityType>
-      <ComplexType Name=""ExtraFields"" OpenType=""true"" />
+      <ComplexType Name=""ExtraFields"" OpenType=""true"">
+        <Property Name=""Empty"" Type=""Edm.String"" />
+      </ComplexType>
     </Schema>
     <Schema Namespace=""Default"" xmlns=""http://docs.oasis-open.org/odata/ns/edm"">
       <EntityContainer Name=""Container"">

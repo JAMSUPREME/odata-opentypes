@@ -22,12 +22,13 @@ namespace SampleOdataHost
             //register types
             builder.EntitySet<Person>("People");
             var extType = builder.ComplexType<ExtraFields>();
-            //extType.HasDynamicProperties(e => e.Self); //might work? (appears it is already known that self is dynamic)
+            var eProp = extType.Property(e => e.Empty);
+            eProp.IsOptional();
 
             var pType = builder.EntityType<Person>();
             pType.Ignore(p => p.Context);
-            pType.ComplexProperty(p => p.ExtraFields); // fake, but must exist for CSDL to validate on client
-            //pType.HasDynamicProperties(f => f.ExtraFields);
+            var exProp = pType.ComplexProperty(p => p.ExtraFields); // fake, but must exist for CSDL to validate on client
+            exProp.IsOptional();
 
             config.MapODataServiceRoute("odata", "odata", builder.GetEdmModel());
             config.Formatters.InsertRange(0, ODataMediaTypeFormatters.Create()); // add default OData serializers to enable XML support
